@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>Automobile</title>
+<script type="text/javascript" href="JavaScript.js"></script>
+</head>
+<style>
+.alert {
+  padding: 15px;
+  border: 1px solid #d6e9c6;
+  border-radius: 4px;
+  color: #3c763d;
+  background-color: #dff0d8;
+</style>
+<body>
+	<script type="text/javascript">      
+		function Automobile(color, model, year, manufact){
+				this.color = color;
+				this.model = model;
+				this.year = year;
+				this.manufact = manufact;
+				this.whatColor = function(){
+					alert("Automobiles color is " + this.color);
+					//return this.color;
+				};
+				this.autoInfo = function(){
+					alert("Automobiles model is " + this.model +" Automobile was manufactured in " + this.year + " Carmaker is " + this.manufact);
+						
+				};				
+			};					
+				var automobile = new Automobile("Red.", "Skyline.", "2007.", "Nissan.");				
+				var automobile2 = new Automobile("Black.", "Corolla.", "2009.", "Toyota.");
+				var automobile3 = new Automobile("Blue.", "Golf.", "2007.", "Volkswagen.");
+				automobile.autoInfo();
+				automobile2.autoInfo();
+				automobile3.autoInfo();
+				automobile.whatColor();			
+			function Driver(name, experience){
+				//this.__proto__ = Automobile();
+				this.name = name;
+				this.experience = experience;
+				this.driverInfo = function(){
+					alert("driverInfo: " + this.name + this.experience);
+				};				
+			}
+		var automobile = new Automobile(" White.", " Focus.", " 2010.", " Ford.")
+		Driver.prototype = automobile;		
+		var driver = new Driver("Dmitrii", " 2 years.");			
+		driver.driverInfo();
+		driver.autoInfo();
+		driver.whatColor();										
+	</script>
+</body>
+</html>
