@@ -1,7 +1,7 @@
 {
   "name": "new_pr",
-  "version": "1.0.0",
-  "description": "teamwork",
+  "version": "1.0.2",
+  "description": "new version for footer",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,4 +16,16 @@
   ],
   "author": "vlad",
   "license": "ISC"
+    "url": "git+https://github.com/ivchenkodima/new_pr.git"
+  },
+  "keywords": [
+    "new",
+    "footer"
+  ],
+  "author": "M.Mezhetsjaya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ivchenkodima/new_pr/issues"
+  },
+  "homepage": "https://github.com/ivchenkodima/new_pr#readme"
 }
