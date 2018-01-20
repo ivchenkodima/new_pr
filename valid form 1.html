@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>valid</title>
+    <meta charset="UTF-8" />
+    <script type="text/javascript"> 
+     window.onload = function() {
+        var name = document.forms[0].name;
+        var email = document.forms[0].email;
+        var phone = document.forms[0].phone;
+        var password = document.forms[0].password;
+        var RePassword = document.forms[0].RePassword;
+        var state = document.forms[0].state; 
+        console.log(state);
+        var adr_pattern = /[0-9a-z_]+@[0-9a-z_]+\.[a-z]{2,5}/i;
+        var phone_pattern = /^([\+]+)*[0-9\x20\x28\x29\-]{5,20}$/; 
+        var name_error = document.getElementById("name_error");
+        var email_error = document.getElementById("email_error");
+        var phone_error = document.getElementById("phone_error");
+        var password_error = document.getElementById("password_error");
+        // var Repassword_error = document.getElementById("Repassword_error");
+        name.addEventListener("blur", nameVerify, true);
+        email.addEventListener("blur", emailVerify, true);
+        phone.addEventListener("blur", phoneVerify, true);
+        password.addEventListener("blur", passwordVerify, true);
+        RePassword.addEventListener("blur", RePasswordVerify, true);		
+        validate = function(){ 
+            if (name.value == "" || name.value == " "){ 
+              document.getElementById("hrname").style.color = "#f37a7a"; 
+              name_error.textContent = "Ви не ввели своє ім'я";
+              name.focus();
+              return false;
+            } 
+            else if (adr_pattern.test(email.value) == false){
+              document.getElementById("hremail").style.color = "#f37a7a";
+              email_error.textContent = "Ви ввели email неправильно";
+              email.focus();
+              return false;
+            } 
+            else if (phone_pattern.test(phone.value) == false){
+              document.getElementById("hrphone").style.color = "#f37a7a";
+              phone_error.textContent = "Ви ввели номер телефону неправильно";
+              phone.focus();
+              return false;
+            } 
+            else if (password.value == ""){
+              document.getElementById("hrpassword").style.color = "#f37a7a";
+              password_error.textContent = " Ви не ввели свій пароль";
+              password.focus();
+              return false;
+            }
+            else if (password.value != RePassword.value){
+              document.getElementById("hrRepassword").style.color = "#f37a7a";
+              document.getElementById("repasswordError").textContent = "Паролі не співпадають";
+              RePassword.focus();
+              return false;
+            }
+            else if(state.value) {
+                state_error.textContent = "";  
+                return true;
+            } 
+            else if (!state.value){
+              state_error.textContent = "Укажіть стать";
+                return false;
+              }
+        }    
+        function nameVerify(){
+          if (name.value != "" || name.value != " "){
+            document.getElementById("hrname").style.color = "#bdf37a";
+            name_error.textContent = "";
+            return true;
+          }
+        }
+        function emailVerify(){
+          if (adr_pattern.test(email.value)== true){
+            document.getElementById("hremail").style.color = "#bdf37a";
+            email_error.textContent = "";
+            return true;
+          }
+        }
+        function phoneVerify(){
+          if (phone_pattern.test(phone.value) == true){
+            document.getElementById("hrphone").style.color = "#bdf37a";
+            phone_error.textContent = "";
+            return true;
+          }
+        }
+        function passwordVerify(){
+          if (password.value != ""){
+            document.getElementById("hrpassword").style.color = "#bdf37a";
+            password_error.textContent = "";
+            return true;
+          }
+        }
+        function RePasswordVerify(){
+          if (password.value == RePassword.value){
+            var repasswordError = document.getElementById("repasswordError");
+            document.getElementById("hrRepassword").style.color = "#bdf37a";
+            repasswordError.textContent = "";
+            return true;
+          }
+        }
+    } 
+    </script>
+    <style>
+      #wrapper{
+      }
+        form {
+            width: 25%;
+      margin-left: 37%;
+      margin-top: 0;
+            float: left;
+        }
+        form label {
+            float: left;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        form input {
+      border: none;
+           /* border-radius: 5px; 
+          border: 2px solid silver;*/
+            padding: 5px;
+            float: left;
+            clear: both;
+            margin-top: 10px;
+            width: 100%;    
+        }   
+      form input:invalid {
+      box-shadow: none;
+      }
+        /*form input:focus {
+            border: 2px solid #f58b8b;
+        } */
+      hr {
+        color: solid silver;
+        width: 100%;
+        size: 2px;
+        float: left;
+      }
+      .button {
+              float: left;
+              padding: 5px;
+              margin-top: 30px;
+              background-color: #f37a7a;
+              font-size: 2em;
+              color: #fff;
+              cursor: pointer;
+              height: 55px;
+        border-radius: 5px; 
+        border: 2px solid #f37a7a;
+          }
+          .button:hover {
+              background-color: #bdf37a;
+          }
+      form span{
+        margin: 3px auto;
+      }
+      .val_error{
+        position: absolute;
+        color: #f37a7a;
+        font-family: Arial, sans-serif;
+        font-size: 12px;
+      }
+      .wrapper1 { position: relative;   
+            }
+      .control:focus ~ .floating-label,
+      .control:not(:focus):valid ~ .floating-label{
+        border: none;
+        outline: none;
+        top: 4px;
+        left: 5px;
+        font-size: 11px;
+        color: #b2b2b2;
+        opacity: 0.6;
+      }
+      .control { 
+        font-size: 14px;
+          border: none;
+       outline: none;
+        border-radius: 5px;
+             /* border: 2px solid silver;*/
+              padding: 5px;
+              float: left;
+              clear: both;
+      }
+      .floating-label {
+        border: none;
+        outline: none;
+        margin-left:37%;
+       color: #7b7b7b;
+        position: absolute;
+        pointer-events: none;
+        left: 5px;
+        top: 14px;
+        transition: 0.4s ease all;
+      }
+      #flname{
+      margin-top: 10px;
+      }
+      #flemail{
+      margin-top: 75px;
+      }
+      #flphone{
+      margin-top: 140px;
+      }
+      #flpassword{
+      margin-top: 205px;
+      }
+      #flRepassword{
+      margin-top: 270px;
+      }
+      #name_error{
+      margin-top: 27px;
+      }
+      #email_error{
+      margin-top: 55px;
+      }
+      #phone_error{
+      margin-top: 79px;
+      margin-left: -335px;
+      }
+      #password_error{
+      margin-top: 105px;
+      margin-left: -335px;
+      }
+      #repasswordError{
+      margin-top: 135px;
+      margin-left: -328px;
+      }
+      #state_error{
+      margin-top: 114px;
+      margin-left: -100px;
+      }
+      #female {
+      margin-top: -55px;
+      }
+      #male {
+      margin-top: -25px;
+      }
+      #hrRepassword{
+        margin-bottom: 30px;
+      }
+    </style>
+</head>
+<body>
+  <div id="wrapper">
+    <form novalidate action="" name="test" id="form" onsubmit="return validate()">
+      <div class="wraper1">
+        <input
+          type="text"
+          name="name"
+          id="name"
+          class="control"
+          required="1"
+          oninvalid="this.setCustomValidity('Введіть своє імя')"
+          oninput="setCustomValidity('')"
+        />
+        <br />
+        <hr id="hrname" name="hrname" />
+        <span class="floating-label" id="flname">Введіть своє і'мя</span>
+      </div>
+      <div id = "name_error" class = "val_error"></div>
+      <br />
+      <div>
+        <label for="email"></label>
+        <input
+          type="text"
+          name="email"
+          placeholder=""
+          id="email"
+          class="control"
+          required="required"
+          oninvalid="this.setCustomValidity('Введіть свій email')"
+          oninput="setCustomValidity('')"
+          />
+        <br /> 
+        <hr id="hremail">
+        <span class="floating-label" id="flemail">Введіть свій email</span> 
+        <div id = "email_error" class = "val_error"></div>
+        <br />
+      </div>
+      <div>
+        <label for="phone"></label>
+        <input
+          type="text"
+          name="phone"
+          placeholder=""
+          id="phone"
+          class="control"
+          required
+          oninvalid="this.setCustomValidity('+380123456789')"
+          oninput="setCustomValidity('')"
+          />
+        <br /> 
+        <hr id="hrphone">
+        <span class="floating-label" id="flphone">Введіть свій телефон</span>
+        <span id = "phone_error" class = "val_error"></span>
+        </br>
+      </div>
+      <div>
+        <label for="password"></label>
+        <input
+          type="password"
+          name="password"
+          placeholder=""
+          id="password"
+          class="control"
+          required
+          oninvalid="this.setCustomValidity('Введіть свій пароль')"
+          oninput="setCustomValidity('')"
+          />
+        <br />
+        <hr id="hrpassword">
+        <span class="floating-label" id="flpassword">Введіть свій пароль</span>
+        <span id = "password_error" class = "val_error"></span>
+        <br />
+      </div>
+      <div>
+        <label for="RePassword"></label>
+        <input
+          type="password"
+          name="RePassword"
+          placeholder=""
+          id="RePassword"
+          class="control"
+          required
+          oninvalid="this.setCustomValidity('Продублюйте пароль')"
+          oninput="setCustomValidity('')"
+        />
+        <br />
+        <hr id="hrRepassword">
+        <span class="floating-label" id="flRepassword">Продублюйте пароль</span>
+        <span id="repasswordError" class = "val_error"></span>
+        </br>
+      </div>
+      <div class="radio">
+        <label for="female">Пол женский</label>
+        <label for="male">Пол мужской</label>     
+        <input type="radio" name="state" value="Женский" id="female"/>
+        <input type="radio" name="state" value="Мужской" id="male"/> 
+        <span id = "state_error" class = "val_error"></span>
+      </div>
+      <input type="submit" class="button" name="submit" value="Готово" />
+    </form>
+  </div>
+</body>
+</html>
