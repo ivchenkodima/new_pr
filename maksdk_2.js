@@ -41,6 +41,5 @@ let merge_sort = (array) => {
   return mergeSort(array);
 }
 var testArray = [1,5,7,9,8,6,3,4,2];
-console.log(merge_sort(testArray));
 
 
