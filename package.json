@@ -1,28 +1,19 @@
 {
-  "name": "new_pr",
-  "version": "1.0.2",
-  "description": "new version for footer",
-  "main": "index.js",
+  "name": "test",
+  "version": "1.0.0",
+  "description": "test for github",
+  "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C"
-  },
-  "keywords": [
-    "team",
-    "work"
-  ],
-  "author": "vlad",
-  "license": "ISC"
     "url": "git+https://github.com/ivchenkodima/new_pr.git"
   },
   "keywords": [
-    "new",
-    "footer"
+    "test"
   ],
-  "author": "M.Mezhetsjaya",
+  "author": "mma",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ivchenkodima/new_pr/issues"
